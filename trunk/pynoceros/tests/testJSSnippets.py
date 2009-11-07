@@ -213,7 +213,10 @@ class TestJSSnippets(TestCase):
         
     def test_query_cond(self):
         assert self._parsesOk("x = x ? x : 0;")
-        
+       
+    def test_typeof(self):
+        # This caused the initial import to fail parsing jQuery
+        assert self._parsesOk('if(typeof a === "string"){}')
         
 def test_suite():
     from unittest import TestSuite, makeSuite
