@@ -217,6 +217,10 @@ class TestJSSnippets(TestCase):
     def test_typeof(self):
         # This caused the initial import to fail parsing jQuery
         assert self._parsesOk('if(typeof a === "string"){}')
+
+    def test_labels(self):
+        # Another bug that was raised during parsing jQeury
+        assert self._parsesOk('example: function(){}')
         
 def test_suite():
     from unittest import TestSuite, makeSuite
