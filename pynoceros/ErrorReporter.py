@@ -38,7 +38,7 @@
 # the terms of any one of the MPL, the GPL or the LGPL.
 # 
 # ***** END LICENSE BLOCK *****
-
+import sys
 
 class ErrorReporter(object):
     """ generated source for ErrorReporter
@@ -50,7 +50,7 @@ class ErrorReporter(object):
                       line,
                       lineSource,
                       lineOffset):
-        raise NotImplementedError()
+        print >> sys.stderr, "warning: " + message
 
     def error(self, message,
                     sourceName,
