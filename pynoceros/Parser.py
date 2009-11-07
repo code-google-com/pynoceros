@@ -892,7 +892,7 @@ class Parser(object):
             return pn
         elif tt == Token.FUNCTION:
             self.consumeToken()
-            pn = function(FunctionNode.FUNCTION_EXPRESSION_STATEMENT)
+            pn = self.function(FunctionNode.FUNCTION_EXPRESSION_STATEMENT)
             return pn
         elif tt == Token.DEFAULT:
             self.consumeToken()
@@ -1067,7 +1067,7 @@ class Parser(object):
             self.decompiler.addToken(Token.COMMA)
             if self.compilerEnv.isStrictMode() and not pn.hasSideEffects():
                 self.addStrictWarning("msg.no.side.effects", "")
-            pn = self.nf.createBinary(Token.COMMA, pn, assignExpr(inForInit))
+            pn = self.nf.createBinary(Token.COMMA, pn, self.assignExpr(inForInit))
         return pn
         
 
@@ -1631,11 +1631,14 @@ class Parser(object):
                                 if (not self.getterSetterProperty(elems, \
                                             prop, False)):
                                     break
-                            self.decompiler.addName(s);
+                            else:
+                                self.decompiler.addName(s);
+                                prop = ScriptRuntime.getIndexObject(s)
+                                self.plainProperty(elems, prop)
                         else:
-                            self.decompiler.addString(s);
-                        prop = ScriptRuntime.getIndexObject(s);
-                        self.plainProperty(elems, prop);
+                            self.decompiler.addString(s)
+                            prop = ScriptRuntime.getIndexObject(s)
+                            self.plainProperty(elems, prop)
 
                     elif tt == Token.NUMBER:
                         self.consumeToken();

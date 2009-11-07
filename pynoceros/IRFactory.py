@@ -205,7 +205,7 @@ class IRFactory(object):
                 fn = fnNode.getFunctionNode(i)
                 if (fn.getFunctionType() == FunctionNode.FUNCTION_EXPRESSION_STATEMENT):
                     name = fn.getFunctionName()
-                    if name is not None and len((name) != 0):
+                    if name is not None and (len(name) != 0):
                         fnNode.removeParamOrVar(name)
                 i += 1
         if (functionType == FunctionNode.FUNCTION_EXPRESSION):
