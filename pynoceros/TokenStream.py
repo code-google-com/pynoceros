@@ -154,7 +154,7 @@ class TokenStream(object):
                         "public":Token.RESERVED,
                         "switch":Token.SWITCH,
                         "export":Token.EXPORT,
-                        "typof":Token.TYPEOF}.get(name,0)
+                        "typeof":Token.TYPEOF}.get(name,0)
         elif length == 7:
             token_id = {"package": Token.RESERVED,
                         "default": Token.DEFAULT,
