@@ -732,7 +732,7 @@ class Node(object):
                     cls.toStringTreeHelper(treeTop, cursor, printIds, level + 1, sb)
                 cursor = cursor.cls.getNext()
 
-    @classmethod
+    #@classmethod
     def generatePrintIds(cls, n, map):
         if Token.printTrees:
             map.put(n, len(map))

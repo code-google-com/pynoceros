@@ -52,6 +52,8 @@ class ScriptOrFnNode(Node):
         self.itsVariableNames = ObjToIntMap(11)
         self.itsVariables = []
         self.itsConst = []
+        self.functions = []
+        self.regexps = []
 
     def getSourceName(self):
         return self.sourceName
@@ -230,8 +232,8 @@ class ScriptOrFnNode(Node):
     sourceName = ""
     baseLineno = -1
     endLineno = -1
-    functions = []#ObjArray()
-    regexps = []#ObjArray()
+    functions = None #[]#ObjArray()
+    regexps = None #[]#ObjArray()
     itsVariables = None#ObjArray()
     itsConst = None#ObjArray()
     itsVariableNames = None
