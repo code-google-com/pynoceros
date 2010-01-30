@@ -489,9 +489,7 @@ class TokenStream(object):
                                 # preserve the escaping
                                 self.addToString("\\");
                             self.addToString(c);
-
                     else:
-
                         self.addToString(c);
 
                     c = self.getChar();
@@ -1365,9 +1363,7 @@ class TokenStream(object):
         return False
 
     def getStringFromBuffer(self):
-        #import pdb;pdb.set_trace()
-        #return "".join(self.stringBuffer[:self.stringBufferTop-1])
-        return "".join(self.stringBuffer[:self.stringBufferTop]).strip()
+        return "".join(self.stringBuffer[:self.stringBufferTop])
 
     def addToString(self, c):
         N = self.stringBufferTop
