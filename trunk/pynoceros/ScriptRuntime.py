@@ -67,7 +67,6 @@ class ScriptRuntime(object):
             i = int(s)
             if i > 0:
                 return i
-        print s, " is not numeric"
         return s
 
     @classmethod
